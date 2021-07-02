@@ -1,0 +1,9 @@
+# dependencies
+node_modules
+
+.idea
+# dependencies
+client/node_modules
+
+files
+static
