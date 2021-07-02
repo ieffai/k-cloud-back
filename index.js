@@ -23,12 +23,11 @@ app.use('/api/files', fileRouter);
 const start = async () => {
     try {
         await mongoose.connect(config.get('dbUrl'));
-
         app.listen(PORT, () => {
             console.log('Server started on port ', PORT);
         });
     } catch (error) {
-        
+      console.log(error);  
     }
 }
 
