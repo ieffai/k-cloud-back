@@ -153,9 +153,9 @@ class FileController {
         try {
             const user = await User.findById(req.user.id);
             console.log(user);
-            const path = `${req.filePath + '\\' + req.user.id}`
+            const path = `${req.filePath + `/` + req.user.id}`
             console.log(path);
-            fs.unlinkSync(path + '\\' + user.avatar);
+            fs.unlinkSync(path + '/' + user.avatar);
             
             user.avatar = null;
             await user.save();
