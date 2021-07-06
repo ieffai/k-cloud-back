@@ -141,7 +141,7 @@ class FileController {
             const file = req.files.file;
             const user = await User.findById(req.user.id);
             const avatarName = Uuid.v4() + '.jpg';
-            const path = `${req.filePath + '/' + req.user.id + '/' + avatarName}`;
+            const path = `${req.filePath + '\\' + req.user.id + '\\' + avatarName}`;
             console.log('path in upload is '+path)
             file.mv(path);
             user.avatar = avatarName;
@@ -156,9 +156,9 @@ class FileController {
         try {
             const user = await User.findById(req.user.id);
             console.log(user);
-            const path = `${req.filePath + '/' + req.user.id}`
+            const path = `${req.filePath + '\\' + req.user.id}`
             console.log('path in delete is '+path)
-            fs.unlinkSync(path + '/' + user.avatar);
+            fs.unlinkSync(path + '\\' + user.avatar);
             
             user.avatar = null;
             await user.save();
