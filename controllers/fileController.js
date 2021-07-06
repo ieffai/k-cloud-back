@@ -83,6 +83,7 @@ class FileController {
                 parent: parent ? parent._id : null,
                 user: user._id
             })
+
             await dbFile.save();
             await user.save();
             res.json(dbFile);
@@ -152,7 +153,10 @@ class FileController {
         try {
             const user = await User.findById(req.user.id);
             console.log(user);
-            fs.unlinkSync(config.get('staticPath') + '\\' + user.avatar)
+            const path = `${req.filePath + '\\' + req.user.id}`
+            console.log(path);
+            fs.unlinkSync(path + '\\' + user.avatar);
+            
             user.avatar = null;
             await user.save();
             return res.json(user)
