@@ -70,6 +70,7 @@ class FileController {
                 return res.status(400).json({message: 'File already exists'})
             }
             file.mv(path);
+            console.log('path in uploadFile is '+path)
             const type = file.name.split('.').pop();
             let filePath = file.name;
             if(parent) {
@@ -97,6 +98,7 @@ class FileController {
         try {
             const file = await File.findOne({_id: req.query.id, user: req.user.id});
             const path = fileService.getPath(req, file);
+            console.log('path in download is '+path)
             if (fs.existsSync(path)) {
                 return res.download(path, file.name);
             }
