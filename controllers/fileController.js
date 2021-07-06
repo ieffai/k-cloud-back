@@ -139,7 +139,7 @@ class FileController {
             const file = req.files.file;
             const user = await User.findById(req.user.id);
             const avatarName = Uuid.v4() + '.jpg';
-            const path = `${req.filePath + '\\' + req.user.id + '\\' + avatarName}`;
+            const path = `${req.filePath + '/' + req.user.id + '/' + avatarName}`;
             file.mv(path);
             user.avatar = avatarName;
             await user.save();
@@ -153,7 +153,7 @@ class FileController {
         try {
             const user = await User.findById(req.user.id);
             console.log(user);
-            const path = `${req.filePath + `/` + req.user.id}`
+            const path = `${req.filePath + '/' + req.user.id}`
             console.log(path);
             fs.unlinkSync(path + '/' + user.avatar);
             
