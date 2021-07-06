@@ -83,7 +83,6 @@ class FileController {
                 parent: parent ? parent._id : null,
                 user: user._id
             })
-
             await dbFile.save();
             await user.save();
             res.json(dbFile);
