@@ -22,7 +22,15 @@ $ npm install
   - bcrypt, JWT
   - MONGO, mongoose
 
-## ![k-cloud](./k-cloud-demo.png)
+## ![k-cloud](./k-cloud1.png)
+
+## ![k-cloud](./k-cloud2.png)
+
+## ![k-cloud](./k-cloud3.png)
+
+## ![k-cloud](./k-cloud4.png)
+
+## ![k-cloud](./k-cloud5.png)
 
 **For suggestions and errors:**
 4923920@gmail.com
